@@ -1,2 +1,0 @@
-# CubePointModel
-CubePointModel
