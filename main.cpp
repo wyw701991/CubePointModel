@@ -4,36 +4,36 @@
 #include<iomanip>
 using namespace std;
 int main(){
-	vector<point> V = readData("../src/data.txt");
-	CubePointModel cubePointModel(V);  //³õÊ¼»¯
-	//Êä³ö×îĞ¡Á¢·½ÌåµÄ±ß½çµã
-	std::cout << "×îĞ¡Á¢·½ÌåµÄ±ß½çµãÎª:" << endl;
+	vector<point> V = readData("./data.txt");
+	CubePointModel cubePointModel(V);  //åˆå§‹åŒ–
+	//è¾“å‡ºæœ€å°ç«‹æ–¹ä½“çš„è¾¹ç•Œç‚¹
+	std::cout << "æœ€å°ç«‹æ–¹ä½“çš„è¾¹ç•Œç‚¹ä¸º:" << endl;
 	for (int i = 0; i < cubePointModel.CubeBoundPoint.size(); i++){
 		std::cout <<fixed<<setprecision(6)<< cubePointModel.CubeBoundPoint[i].x << " " << cubePointModel.CubeBoundPoint[i].y << " " << cubePointModel.CubeBoundPoint[i].z << endl;
 	}
 	vector<point> boundPoint = cubePointModel.GetBound();
-	//Êä³öµÃµ½µÄ±ß½çµã
-	std::cout << "µãÔÆµÄ±ß½çµãÎª:" << endl;
+	//è¾“å‡ºå¾—åˆ°çš„è¾¹ç•Œç‚¹
+	std::cout << "ç‚¹äº‘çš„è¾¹ç•Œç‚¹ä¸º:" << endl;
 	std::cout << setprecision(6) << "(v_min,v_max)=((" << boundPoint[0].x << " " << boundPoint[0].y << " " << boundPoint[0].z << "),(" << boundPoint[1].x << " " << boundPoint[1].y << " " << boundPoint[1].z << "))" << endl;
 	point v_0;
 	int X;
-	std::cout << "ÇëÊäÈëÈıÎ¬µãv_0£¬ÒÔ¼°½üÁÚµãµÄ¸öÊıX:";
+	std::cout << "è¯·è¾“å…¥ä¸‰ç»´ç‚¹v_0ï¼Œä»¥åŠè¿‘é‚»ç‚¹çš„ä¸ªæ•°X:";
 	cin >> v_0.x >> v_0.y >> v_0.z>>X;
 	vector<point> nearVPoint = cubePointModel.GetNearBy(v_0, X);
-	//Êä³öv_0µÄ½üÁÚµã
-	std::cout << "v_0µÄ½üÁÚµãÎª:" << endl;
+	//è¾“å‡ºv_0çš„è¿‘é‚»ç‚¹
+	std::cout << "v_0çš„è¿‘é‚»ç‚¹ä¸º:" << endl;
 	for (int j = 0; j < nearVPoint.size(); j++){
 		std::cout << setprecision(6) << nearVPoint[j].x << " " << nearVPoint[j].y << " " << nearVPoint[j].z << endl;
 	}
-	std::cout << "ÇëÒÀ´ÎÊäÈë×îĞ¡·¶Î§µãÓë×î´ó·¶Î§µã:" << endl;
+	std::cout << "è¯·ä¾æ¬¡è¾“å…¥æœ€å°èŒƒå›´ç‚¹ä¸æœ€å¤§èŒƒå›´ç‚¹:" << endl;
 	vector<point> b;
 	b.resize(2);
 	std::cin >> b[0].x >> b[0].y >> b[0].z;
 	std::cin >> b[1].x >> b[1].y >> b[1].z;
 	vector<point> containPoint = cubePointModel.GetContained(b);
-	std::cout << "°üº¬ÔÚb·¶Î§ÄÚµÄµãµÄ¸öÊıÎª:" << containPoint.size() << endl;
-	std::cout << "°üº¬ÔÚb·¶Î§ÄÚµÄµã:" << endl;
-	//Êä³ö°üº¬ÔÚb·¶Î§ÄÚµÄµã
+	std::cout << "åŒ…å«åœ¨bèŒƒå›´å†…çš„ç‚¹çš„ä¸ªæ•°ä¸º:" << containPoint.size() << endl;
+	std::cout << "åŒ…å«åœ¨bèŒƒå›´å†…çš„ç‚¹:" << endl;
+	//è¾“å‡ºåŒ…å«åœ¨bèŒƒå›´å†…çš„ç‚¹
 	for (int j = 0; j < containPoint.size(); j++){
 		std::cout << setprecision(6) << containPoint[j].x << " " << containPoint[j].y << " " << containPoint[j].z << endl;
 	}
