@@ -1,4 +1,4 @@
-// CubePointModel.cpp : ¶¨Òå¿ØÖÆÌ¨Ó¦ÓÃ³ÌĞòµÄÈë¿Úµã¡£
+// CubePointModel.cpp : å®šä¹‰æ§åˆ¶å°åº”ç”¨ç¨‹åºçš„å…¥å£ç‚¹ã€‚
 //
 
 #include"CubePointModel.h"
@@ -118,10 +118,6 @@ vector<point> CubePointModel::GetNearBy(point v_0, int X){
 	{
 		for (size_t i = 0; i < pointIdxNKNSearch.size(); ++i)
 			NearByPoint.push_back({ cloud->points[pointIdxNKNSearch[i]].x, cloud->points[pointIdxNKNSearch[i]].y, cloud->points[pointIdxNKNSearch[i]].z });
-			/*std::cout << "    " << cloud->points[pointIdxNKNSearch[i]].x
-			<< " " << cloud->points[pointIdxNKNSearch[i]].y
-			<< " " << cloud->points[pointIdxNKNSearch[i]].z
-			<< " (squared distance: " << pointNKNSquaredDistance[i] << ")" << std::endl;*/
 	}
 	return NearByPoint;
 }
